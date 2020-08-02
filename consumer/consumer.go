@@ -74,11 +74,11 @@ func Setup(brokers, version, group, topics string, oldest bool, redis *redis.Cli
 
 	cancel() // issue a cancellation
 
-	defer func() {
-		if err := client.Close(); err != nil {
-			panic(err)
-		}
-	}()
+	// defer func() {
+	// 	if err := client.Close(); err != nil {
+	// 		panic(err)
+	// 	}
+	// }()
 
 	wg.Wait()
 	if err = client.Close(); err != nil {
