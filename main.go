@@ -23,6 +23,18 @@ func parseFlags() {
 	flag.BoolVar(&oldest, "oldest", true, "kafka consumer consume initial offset from oldest")
 	flag.Parse()
 
+	if len(brokers) == 0 {
+		panic("Sorry, no Kafka bootstrap brokers defined. Try to set the -brokers flag")
+	}
+
+	if len(topics) == 0 {
+		panic("Sorry, no topics given to be consumed. Try to set the -topics flag")
+	}
+
+	if len(group) == 0 {
+		panic("Sorry, no Kafka consumer group defined. Try to set the -group flag")
+	}
+
 }
 
 func main() {
